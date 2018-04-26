@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Gravitas+One|Shojumaru|Vast+Shadow');
+
+body {
+    background-image: url("../images/kitchen07.jpeg");
+}
+
+.jumbotron {
+    background-color:rgba(44, 62,  69, .8);
+    border-color: #ddd;
+    border-spacing: solid;
+    border: 1px solid;
+}
+
+.jumbotron, h1{
+    color: rgb(217, 190, 156);
+    text-align: center;
+    font-family: 'Vast Shadow', cursive;
+}
+
+.panel{
+background-color: rgba(60, 44,  69, .8);
+}
+
+.panel-default > .panel-heading {
+background-color: rgb(76, 108, 53, .8);  
+font-family: 'Vast Shadow', cursive;
+}
+
+.mealBtn, .btn-lg{
+margin: 10px 5px 5px 5px;
+background-color: rgba(69,64,44);
+color: rgb(217, 190, 156);
+font-family: 'Vast Shadow', cursive;
+}
+
+p, .panel-default > .panel-heading{
+color: rgb(217, 190, 156);
+}
+
