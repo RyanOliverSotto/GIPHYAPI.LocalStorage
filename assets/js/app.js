@@ -9,6 +9,7 @@ End Pseudocode */
 
 //Optional sounds
 let audioClick = new Audio("assets/sounds/mouse_click.wav");
+let audioDing = new Audio("assets/sounds/ding.wav");
 
 //localStorage.clear();
 // Starting array of meals
@@ -97,9 +98,9 @@ $(document).ready(function () {
 
     $("#formClear").on("click", function (event) {
         event.preventDefault();
-        audioClick.play();
+        audioDing.play();
         //alert("I was clicked");
-        localStorage.clear();
+        localStorage.clear(); 
         $("input[type='text']").val("");        
         $("#gifSection").empty();
         meals = [];

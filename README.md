@@ -36,4 +36,4 @@ Need to address floats of the images and add CSS to make the page stylized.
 #Author
 Ryan Oliver Sotto
 
-# https://ryanoliversotto.github.io/GIPHYAPI/
+# https://ryanoliversotto.github.io/GIPHYAPI.LocalStorage/
