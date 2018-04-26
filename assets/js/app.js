@@ -95,6 +95,18 @@ $(document).ready(function () {
         };//end If
     });//End Submit click
 
+    $("#formClear").on("click", function (event) {
+        event.preventDefault();
+        audioClick.play();
+        //alert("I was clicked");
+        localStorage.clear();
+        $("input[type='text']").val("");        
+        $("#gifSection").empty();
+        meals = [];
+        renderButtons();
+    });//End Submit click
+
+
     $("body").on("click", ".mealBtn", function () {
         //alert("I was clicked!");
         $("#gifSection").empty();
