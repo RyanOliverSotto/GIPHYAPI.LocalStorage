@@ -7,22 +7,9 @@ The user will need to click the images to toggle whether or not the GIF is anima
 There is an option to add additional items to the array and display that to the html.
 End Pseudocode */
 
-//Optional sounds
-let audioClick = new Audio("assets/sounds/mouse_click.wav");
-
-//localStorage.clear();
 // Starting array of meals
-let meals = JSON.parse(localStorage.getItem("mealStorage"));
-    // Checks to see if the todolist exists in localStorage and is an array currently
-    // If not, set a local list variable to an empty array
-    // Otherwise list is our current list of todos
-    if (!Array.isArray(meals)) {
-        meals = [];
-      }
-
-
-/*= [
-   "lobster",
+let meals = [
+    "lobster",
     "Miller Lite",
     "barbeque",
     "pancit",
@@ -39,8 +26,10 @@ let meals = JSON.parse(localStorage.getItem("mealStorage"));
     "crab",
     "clam",
     "pho"
-];*/
+];
 
+//Optional sounds
+let audioClick = new Audio("assets/sounds/mouse_click.wav");
 
 $(document).ready(function () {
     renderButtons();
@@ -50,29 +39,19 @@ $(document).ready(function () {
         // (this is necessary otherwise you will have repeat buttons)
         $("#buttonSection").empty();
         // Looping through the array of movies
-        
-        var mealList = JSON.parse(localStorage.getItem("mealStorage"));
-        
-        if (!Array.isArray(mealList)){
-            mealList = [];
-        }
-
-        
-        
-        
-        for (let i = 0; i < mealList.length; i++) {
+        for (let i = 0; i < meals.length; i++) {
             // Then dynamicaly generating buttons for each movie in the array
             // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
             let a = $("<button>");
             // Adding a class of movie-btn to our button
             a.addClass("mealBtn");
             // Adding a data-attribute
-            a.attr("mealName", mealList[i]);
+            a.attr("mealName", meals[i]);
             a.attr("value", i);
             // Providing the initial button text
-            a.text(mealList[i]);
+            a.text(meals[i]);
             // Adding the button to the buttons-view div
-            $("#buttonSection").prepend(a);
+            $("#buttonSection").append(a);
         }//End For Loop
     }//End render Function
     // This function handles events where a movie button is clicked
@@ -84,12 +63,10 @@ $(document).ready(function () {
         // This line grabs the input from the textbox
         let newMeal = $("#inputMeal").val().trim();
         if (newMeal.length > 0) { //Prevent null meals from being pushed into the array
-            // Adding meal from the textbox to our array and LocalStorage
+            // Adding meal from the textbox to our array
             meals.push(newMeal);
-            localStorage.setItem("mealStorage",JSON.stringify(meals));
-            $("input[type='text']").val("");
             //$("#inputMeal").text = "";
-            //$("inputMeal").val("");
+            $("#inputMeal").val("");
             // Calling renderButtons which handles the processing of our meal array
             renderButtons();
         };//end If
