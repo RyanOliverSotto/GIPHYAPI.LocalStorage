@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Gravitas+One|Shojumaru|Vast+Shadow');
 
 body {
-    background-image: url("../images/kitchen01.jpg");
+    background-image: url("../images/kitchen05.jpg");
 }
 
 .jumbotron {
@@ -37,3 +37,16 @@ p, .panel-default > .panel-heading{
 color: rgb(217, 190, 156);
 }
 
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+      } 
+
+p{
+    margin-left: 10px;
+}
+
+img{
+    margin: 10px 10px 10px 10px;
+}

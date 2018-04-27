@@ -5,6 +5,7 @@ on the inputs associated with each button.
 The images returned will be still.
 The user will need to click the images to toggle whether or not the GIF is animated or still.
 There is an option to add additional items to the array and display that to the html.
+**New: Added local storage 
 End Pseudocode */
 
 //Optional sounds
@@ -22,7 +23,9 @@ let meals = JSON.parse(localStorage.getItem("mealStorage"));
       }
 
 
-/*= [
+/*
+Remove the hard coded array for the local storage functionality
+let meals = [
    "lobster",
     "Miller Lite",
     "barbeque",
@@ -58,9 +61,6 @@ $(document).ready(function () {
             mealList = [];
         }
 
-        
-        
-        
         for (let i = 0; i < mealList.length; i++) {
             // Then dynamicaly generating buttons for each movie in the array
             // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
@@ -93,7 +93,7 @@ $(document).ready(function () {
             //$("inputMeal").val("");
             // Calling renderButtons which handles the processing of our meal array
             renderButtons();
-        };//end If
+        };//End If
     });//End Submit click
 
     $("#formClear").on("click", function (event) {
@@ -131,6 +131,7 @@ $(document).ready(function () {
                 //  console.log("Animated: ",response.data[i].images.fixed_width.url);
                 //  console.log("Still ",response.data[i].images.fixed_width_still.url);
                 //  console.log("_____________________________________________________");
+                let gifFlex = $("#gifSection");
                 let mealDiv = $("<div>");
                 let rating = response.data[i].rating;
                 let p = $("<p>").text("Rating: " + rating);
@@ -139,14 +140,17 @@ $(document).ready(function () {
                 // Gets the still gif URL
                 let still = response.data[i].images.fixed_width_still.url;
                 let mealImg = $("<img>");
+                gifFlex.addClass(".flex-container");
                 mealImg.attr({ "src": still, "class": "gif img-responsive", "state": "still", "dataStill": still, "dataAnimate": active });
-                mealDiv.attr("class", "col-lg-3");
+                //mealDiv.attr("class", "col-lg-3");
                 mealDiv.append(p, mealImg);
                 //mealDiv.append(mealImg);
                 $("#gifSection").append(mealDiv);
+                //$("#gifSection").append(p, mealImg);                
             }//End for Loop
         });//End Function Response 
     });//End AJAX call
+
     $("body").on("click", ".gif", function () {
         //alert("I was clicked");
         // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
@@ -163,4 +167,5 @@ $(document).ready(function () {
             $(this).attr("state", "still");
         }//end If
     });//End gif click
+
 });//End document ready
