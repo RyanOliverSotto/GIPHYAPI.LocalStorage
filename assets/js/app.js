@@ -61,6 +61,7 @@ $(document).ready(function () {
             mealList = [];
             //Change the header
             $("#buttonHeader").text("Your favorite foods will show up here.")
+            $("#inputMeal").focus();
         }
 
         for (let i = 0; i < mealList.length; i++) {
@@ -110,6 +111,7 @@ $(document).ready(function () {
         meals = [];
         //Change the header
         $("#buttonHeader").text("Your favorite foods will show up here.")
+        $("#inputMeal").focus();
         renderButtons();
     });//End Submit click
 
