@@ -59,9 +59,13 @@ $(document).ready(function () {
         
         if (!Array.isArray(mealList)){
             mealList = [];
+            //Change the header
+            $("#buttonHeader").text("Your favorite foods will show up here.")
         }
 
         for (let i = 0; i < mealList.length; i++) {
+            //Change the header
+            $("#buttonHeader").text("Click these foods!")
             // Then dynamicaly generating buttons for each movie in the array
             // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
             let a = $("<button>");
@@ -104,6 +108,8 @@ $(document).ready(function () {
         $("input[type='text']").val("");        
         $("#gifSection").empty();
         meals = [];
+        //Change the header
+        $("#buttonHeader").text("Your favorite foods will show up here.")
         renderButtons();
     });//End Submit click
 
