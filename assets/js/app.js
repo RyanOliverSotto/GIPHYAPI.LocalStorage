@@ -134,14 +134,15 @@ $(document).ready(function () {
                 let gifFlex = $("#gifSection");
                 let mealDiv = $("<div>");
                 // Get the titel of the gif
-                let title = response.data[i].title
+                // Removed the title meta from gif. It added little value to the page
+                //let title = response.data[i].title
                 let rating = response.data[i].rating;
                 // Gets the animated gif URL
                 let active = response.data[i].images.fixed_width.url;
                 // Gets the still gif URL
                 let still = response.data[i].images.fixed_width_still.url;
                 let mealImg = $("<img>");                
-                let p = $("<p>").html("Rating: " + rating + " " + "<a download href='" + active + "'  target='_blank'><i class='fa fa-download'></i></a>"+ "</br>Title: "+ title);
+                let p = $("<p>").html("Rating: " + rating + " " + "<a download href='" + active + "' target='_blank'><i class='fa fa-download'></i></a>");
                 gifFlex.addClass(".flex-container");
                 mealImg.attr({ "src": still, "class": "gif img-responsive", "state": "still", "dataStill": still, "dataAnimate": active });
                 //mealDiv.attr("class", "col-lg-3");
